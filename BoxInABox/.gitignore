@@ -58,5 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-BoxInABox/UserSettings/Layouts/default-2021.dwlt
-BoxInABox/UserSettings/EditorUserSettings.asset
+*.DS_Store
+
