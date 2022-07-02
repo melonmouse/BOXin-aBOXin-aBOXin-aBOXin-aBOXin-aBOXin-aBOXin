@@ -7,6 +7,7 @@ public class InifiniteCamera : MonoBehaviour
     public float speed;
     public float wrap_from;
     public float wrap_to;
+    public RandomRotation rotationManager;
     void Update()
     {
         float height = transform.position.y;
@@ -16,6 +17,7 @@ public class InifiniteCamera : MonoBehaviour
             if (height > wrap_from)
                 break;
             height += wrap_to - wrap_from;
+            rotationManager.MoveAngleToParent();
         }
         transform.Translate(new Vector3(0, height-transform.position.y, 0));
     }
