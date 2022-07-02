@@ -38,9 +38,9 @@ public class PixlheroCutscene : MonoBehaviour
 
         //Camera.main.GetComponent
         _endCamera.gameObject.SetActive(true);
-        _endCamera.transform.DOLocalMoveY(2f, 3f).SetEase(Ease.InQuad);
+        _endCamera.transform.DOLocalMoveY(2f, 2f).SetEase(Ease.InQuad);
 
         var sequence = DOTween.Sequence();
-        sequence.Insert(2.5f, fadeOutCanvasGroup.DOFade(1f, 0.5f));
+        sequence.Insert(1.5f, fadeOutCanvasGroup.DOFade(1f, 0.5f));
     }
 }
