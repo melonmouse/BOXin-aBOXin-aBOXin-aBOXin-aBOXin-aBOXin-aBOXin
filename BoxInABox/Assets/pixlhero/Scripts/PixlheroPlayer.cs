@@ -25,12 +25,16 @@ public class PixlheroPlayer : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private DuckCanvas duckCanvas;
+
     private void Awake() {
         _orienter = GetComponent<Orienter>();
         _input = GetComponent<PixlheroInput>();
         _itemPickuper = GetComponent<PixlheroItemPickuper>();
 
         _itemPickuper.OnItemPickedUp += OnItemPickedUp;
+        _itemPickuper.EndboxTouched += OnEndboxTouched;
     }
 
     private void Update() {
@@ -53,6 +57,11 @@ public class PixlheroPlayer : MonoBehaviour
     }
 
     private void OnItemPickedUp(PixlheroItemPickup item){
-        Debug.Log("Picked up item" + item.itemType);
+        BoxItemState.Instance.HeldItem = item.itemType;
+        duckCanvas.SetItem(item.itemType);
+    }
+
+    private void OnEndboxTouched(Endbox endbox){
+        SceneTransition.GoToRandomNextScene();
     }
 }
