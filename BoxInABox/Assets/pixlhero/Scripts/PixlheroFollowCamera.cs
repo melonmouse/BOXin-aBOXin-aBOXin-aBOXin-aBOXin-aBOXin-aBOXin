@@ -31,8 +31,8 @@ public class PixlheroFollowCamera : MonoBehaviour
         transform.LookAt(player, player.up);
 
 
-        actualCamera.position = Vector3.Lerp(actualCamera.position, transform.position, cameraLerpFactor);
-        actualCamera.rotation = Quaternion.Lerp(actualCamera.rotation, transform.rotation, cameraLerpFactor);
+        actualCamera.position = Vector3.Lerp(actualCamera.position, transform.position, cameraLerpFactor * Time.deltaTime);
+        actualCamera.rotation = Quaternion.Lerp(actualCamera.rotation, transform.rotation, cameraLerpFactor * Time.deltaTime);
     
     }
 }

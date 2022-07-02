@@ -62,6 +62,10 @@ public class PixlheroPlayer : MonoBehaviour
     }
 
     private void OnEndboxTouched(Endbox endbox){
+        if(BoxItemState.Instance.HeldItem == BoxItemState.Item.BaseItem){
+            return;
+        }
+        
         SceneTransition.GoToRandomNextScene();
     }
 }
