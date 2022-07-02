@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DuckCanvas : MonoBehaviour
 {
@@ -25,11 +26,18 @@ public class DuckCanvas : MonoBehaviour
 
     public void SetItem(BoxItemState.Item itemType)
     {
+        gameObject.SetActive(true);
+
         foreach(Transform child in modelRoot)
         {
             Destroy(child.gameObject);
         }
 
-        var itemPrefab = _itemMapping.GetHeldItemPrefab();
+        var itemPrefab = _itemMapping.GetItemPrefab(itemType);
+        var itemInstance = Instantiate(itemPrefab, modelRoot);
+        itemInstance.transform.localPosition = Vector3.zero;
+        itemInstance.transform.localRotation = Quaternion.identity;
+
+        transform.DOShakeScale(0.3f, 0.7f, 15, 90);
     }
 }
