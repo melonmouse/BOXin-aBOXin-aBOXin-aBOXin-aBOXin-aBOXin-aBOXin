@@ -22,6 +22,9 @@ public class PixlheroPlayer : MonoBehaviour
 
     private PixlheroItemPickuper _itemPickuper;
 
+    [SerializeField]
+    private Animator animator;
+
     private void Awake() {
         _orienter = GetComponent<Orienter>();
         _input = GetComponent<PixlheroInput>();
@@ -43,6 +46,10 @@ public class PixlheroPlayer : MonoBehaviour
         var moveDir = followCamera.transform.TransformDirection(new Vector3(inputDir.x,  inputDir.y, 0f));
         transform.Translate(moveDir, Space.World);
         model.transform.LookAt(transform.position + moveDir, transform.up);
+        var rotateToUp = Quaternion.FromToRotation(model.up, transform.up);
+        model.rotation = rotateToUp * model.rotation;
+
+        animator.SetFloat("speed", inputDir.magnitude);
     }
 
     private void OnItemPickedUp(PixlheroItemPickup item){
