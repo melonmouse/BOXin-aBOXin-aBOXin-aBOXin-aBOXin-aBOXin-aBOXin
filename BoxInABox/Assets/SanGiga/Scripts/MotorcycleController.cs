@@ -75,32 +75,32 @@ public class MotorcycleController : MonoBehaviour
         Debug.Log("OnTriggerEnter");
 
         if (!other.CompareTag("Road"))
-        {// TODO: change GetComponentInParent to GetComponent in case I change where the collider is in the prefabs use
+        {// TODO: change GetComponentInParent to GetComponent OR GetComponentInChildren in case I change where the collider is in the prefabs use
             // below I will activate on the current held object on the top right corner
-            if (other.GetComponentInParent<ItemIdentifier>().item == BoxItemState.Item.Banana)
+            if (other.GetComponentInChildren<ItemIdentifier>().item == BoxItemState.Item.Banana)
             {
                 capturedObjectManager.ActivateItemNumbered(0);
             }
-            else if (other.GetComponentInParent<ItemIdentifier>().item == BoxItemState.Item.ButterflyCatchingNet)
+            else if (other.GetComponentInChildren<ItemIdentifier>().item == BoxItemState.Item.ButterflyCatchingNet)
             {
                 capturedObjectManager.ActivateItemNumbered(1);
             }
-            else if (other.GetComponentInParent<ItemIdentifier>().item == BoxItemState.Item.Mallet)
+            else if (other.GetComponentInChildren<ItemIdentifier>().item == BoxItemState.Item.Mallet)
             {
                 capturedObjectManager.ActivateItemNumbered(2);
             }
-            else if (other.GetComponentInParent<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
+            else if (other.GetComponentInChildren<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
             {
                 capturedObjectManager.ActivateItemNumbered(3);
             }
 
             //capturedObjectManager.ActivateItemNumbered(i);
 
-            other.transform.GetComponentInParent<ItemIdentifier>().SetAsHeldItem(); // here this is the item that is kept, for the next scene, if I call this method again, it will replace the previously held item, which is exactly what I need
+            other.transform.GetComponentInChildren<ItemIdentifier>().SetAsHeldItem(); // here this is the item that is kept, for the next scene, if I call this method again, it will replace the previously held item, which is exactly what I need
 
-            Debug.Log("other.transform.GetComponentInParent<ItemIdentifier>().SetAsHeldItem() is " + other.transform.GetComponentInParent<ItemIdentifier>().item);
+            Debug.Log("other.transform.GetComponentInParent<ItemIdentifier>().SetAsHeldItem() is " + other.transform.GetComponentInChildren<ItemIdentifier>().item);
             //destroy object
-            GameObject.Destroy(other.transform.parent.gameObject);
+            GameObject.Destroy(other.gameObject);
         }
 
         /*
