@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RandomRotation : MonoBehaviour
 {
+    public BoxAnim boxAnim;
+    public RandomRotation childRandRotation;
     void Start()
     {
         SetRandomAngle();
@@ -13,31 +15,40 @@ public class RandomRotation : MonoBehaviour
     {
         float angle = Random.value * 360;
         transform.eulerAngles = new Vector3(0, angle, 0);
+        transform.GetComponent<Animator>();
+        boxAnim.SetOpen(-0.1f);
+    }
+
+    void Update()
+    {
+        boxAnim.SetOpen(boxAnim.open + Time.deltaTime/10);
     }
 
     public void MoveAngleToParent()
     {
-        float residualAngle = 0;
-        if (!transform.parent.GetComponent<RandomRotation>())
+        if (transform.parent.GetComponent<RandomRotation>())
         {
-            residualAngle = transform.localEulerAngles.y;
-            transform.parent.eulerAngles += Vector3.up * residualAngle;
+            transform.parent.localEulerAngles = transform.localEulerAngles;
+            transform.parent.GetComponent<RandomRotation>().boxAnim
+                .SetOpen(boxAnim.open);
         }
         else
         {
-            transform.parent.localEulerAngles = transform.localEulerAngles;
+            transform.parent.eulerAngles +=
+                Vector3.up * transform.localEulerAngles.y;
         }
 
-        if (transform.childCount == 0)
+        if (childRandRotation == null)
         {
             SetRandomAngle();
         }
         else
         {
-            transform.GetChild(0).GetComponent<RandomRotation>().MoveAngleToParent();
-        }
+            childRandRotation.MoveAngleToParent();
 
-        
+            //transform.GetChild(1).GetComponent<Animator>()?.Play("box-open-anim");
+            // Set animator to fixed state
+        }
     }
 
 }
