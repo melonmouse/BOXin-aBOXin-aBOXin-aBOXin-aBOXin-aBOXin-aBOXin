@@ -22,12 +22,22 @@ public class PixlheroPlayer : MonoBehaviour
 
     private PixlheroItemPickuper _itemPickuper;
 
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private DuckCanvas duckCanvas;
+
+    [SerializeField]
+    private PixlheroCutscene cutscenes;
+
     private void Awake() {
         _orienter = GetComponent<Orienter>();
         _input = GetComponent<PixlheroInput>();
         _itemPickuper = GetComponent<PixlheroItemPickuper>();
 
         _itemPickuper.OnItemPickedUp += OnItemPickedUp;
+        _itemPickuper.EndboxTouched += OnEndboxTouched;
     }
 
     private void Update() {
@@ -43,9 +53,27 @@ public class PixlheroPlayer : MonoBehaviour
         var moveDir = followCamera.transform.TransformDirection(new Vector3(inputDir.x,  inputDir.y, 0f));
         transform.Translate(moveDir, Space.World);
         model.transform.LookAt(transform.position + moveDir, transform.up);
+        var rotateToUp = Quaternion.FromToRotation(model.up, transform.up);
+        model.rotation = rotateToUp * model.rotation;
+
+        animator.SetFloat("speed", inputDir.magnitude);
     }
 
     private void OnItemPickedUp(PixlheroItemPickup item){
-        Debug.Log("Picked up item" + item.itemType);
+        BoxItemState.Instance.HeldItem = item.itemType;
+        duckCanvas.SetItem(item.itemType);
+    }
+
+    private void OnEndboxTouched(Endbox endbox){
+        if(BoxItemState.Instance.HeldItem == BoxItemState.Item.BaseItem){
+            return;
+        }
+
+        //SceneTransition.GoToRandomNextScene();
+        cutscenes.PlayEnd();
+
+
+        duckCanvas.gameObject.SetActive(false);
+        _input.enabled = false;
     }
 }

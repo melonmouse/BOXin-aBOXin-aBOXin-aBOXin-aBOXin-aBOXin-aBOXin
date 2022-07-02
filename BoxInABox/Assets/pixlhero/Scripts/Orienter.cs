@@ -5,7 +5,6 @@ using UnityEngine;
 public class Orienter : MonoBehaviour{
 
     [SerializeField]
-    [Range(0f,1f)]
     private float lerpSmoothFactor;
 
     [SerializeField]
@@ -60,7 +59,7 @@ public class Orienter : MonoBehaviour{
             }
         }
 
-        var smoothedUp = Vector3.Lerp(transform.up, combinedDir, lerpSmoothFactor);
+        var smoothedUp = Vector3.Lerp(transform.up, combinedDir, lerpSmoothFactor * Time.deltaTime);
         
         var appliedRot = Quaternion.Lerp(Quaternion.identity, Quaternion.FromToRotation(transform.up, -combinedDir), lerpSmoothFactor);
         transform.rotation = appliedRot * transform.rotation;
