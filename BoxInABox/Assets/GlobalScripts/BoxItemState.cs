@@ -1,7 +1,4 @@
-
-
-public class BoxItemState{
-
+public class BoxItemState {
     // The item that is contained in the box to be transfered into the next minigame
     public Item HeldItem{ get; set; }
 
@@ -16,7 +13,8 @@ public class BoxItemState{
         }  
     }
 
-    public enum Item{
+    public enum Item {
         // add items
+        BaseItem,
     }
 }
