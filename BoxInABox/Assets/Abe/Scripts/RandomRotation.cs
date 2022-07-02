@@ -6,9 +6,13 @@ public class RandomRotation : MonoBehaviour
 {
     void Start()
     {
-        float angle = Random.value * 360;
-        GameObject x;
-
-
+        SetRandomAngle();
     }
+
+    void SetRandomAngle()
+    {
+        float angle = Random.value * 360;
+        transform.eulerAngles = new Vector3(0, angle, 0);
+    }
+
 }
