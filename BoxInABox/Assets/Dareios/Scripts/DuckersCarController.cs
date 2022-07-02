@@ -20,7 +20,7 @@ public class DuckersCarController : MonoBehaviour
             moveDirection = Vector3.left;
         }
 
-        speed = Random.RandomRange(8.0f, 8.4f);
+        speed = Random.Range(8.0f, 8.4f);
     }
 
     // Update is called once per frame

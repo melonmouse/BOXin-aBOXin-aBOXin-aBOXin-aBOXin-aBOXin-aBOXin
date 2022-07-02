@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class DuckersPlayer : MonoBehaviour
 {
     public GameObject player;
+    public GameObject heldItem;
+
     private float speed = 3.6f;
 
     [SerializeField]
@@ -77,9 +79,20 @@ public class DuckersPlayer : MonoBehaviour
             transform.position = new Vector3(0, 0, -10);
         }
 
+        if (collision.gameObject.tag == "itemToCollect")
+        {
+            heldItem.GetComponent<ItemIdentifier>().SetAsHeldItem();
+            collision.gameObject.SetActive(false);
+        }
+
         if (collision.gameObject.name == "portalBox")
         {
             SceneTransition.GoToRandomNextScene();
         }
+    }
+
+    public void SetSpeed (int newSpeed)
+    {
+        this.speed = newSpeed;
     }
 }
