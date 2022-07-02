@@ -19,5 +19,6 @@ public class BoxItemState {
         Motorcycle,
         Mallet,
         ButterflyCatchingNet,
+        Banana,
     }
 }
