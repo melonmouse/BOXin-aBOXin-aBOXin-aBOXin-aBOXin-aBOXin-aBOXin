@@ -17,7 +17,7 @@ public class DuckersGamemanager : MonoBehaviour
 
         System.Random rnd = new System.Random();
         int lane = rnd.Next(1, 4);
-        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Banana), (Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)));
+        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Banana), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(8f, 5f, 52.6f));
         lane = rnd.Next(1, 4);
         Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Mallet), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.identity);
         lane = rnd.Next(1, 4);
