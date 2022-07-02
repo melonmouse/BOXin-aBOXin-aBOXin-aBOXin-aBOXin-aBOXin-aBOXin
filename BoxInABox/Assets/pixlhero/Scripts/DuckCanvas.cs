@@ -29,5 +29,7 @@ public class DuckCanvas : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        var itemPrefab = _itemMapping.GetHeldItemPrefab();
     }
 }
