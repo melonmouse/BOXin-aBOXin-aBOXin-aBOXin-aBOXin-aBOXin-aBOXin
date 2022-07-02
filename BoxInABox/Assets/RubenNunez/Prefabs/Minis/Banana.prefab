@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2183556389628341416}
   m_Layer: 0
   m_Name: Banana
-  m_TagString: Untagged
+  m_TagString: Mini
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.005409964
-  m_Height: 0.034026742
+  m_Radius: 0.0034658099
+  m_Height: 0.024116697
   m_Direction: 1
-  m_Center: {x: -0.0000012526536, y: -0.0006936219, z: 0.0048224144}
+  m_Center: {x: -0.0000012523378, y: -0.0011559646, z: 0.0028782713}

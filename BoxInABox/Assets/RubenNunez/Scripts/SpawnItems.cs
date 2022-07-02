@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -48,7 +49,8 @@ public class SpawnItems : MonoBehaviour
             if (_items.Count == _itemsCapacity)
             {
                 var itemToDestroy = _items.Dequeue();
-                Destroy(itemToDestroy);
+                try { Destroy(itemToDestroy); }
+                catch (Exception) { Debug.Log("Was already destroyed"); }
             }
         }
     }

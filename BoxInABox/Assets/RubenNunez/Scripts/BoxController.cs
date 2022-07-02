@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BoxController : MonoBehaviour
@@ -9,6 +10,9 @@ public class BoxController : MonoBehaviour
     private GameObject _closed;
     
     [SerializeField]
+    private GameObject _trigger;
+
+    [SerializeField]
     private Animator _boxAnimator;
     
     [SerializeField]
@@ -16,25 +20,39 @@ public class BoxController : MonoBehaviour
     
     private bool _isBoxOpen;
 
-    private Vector3 _movementAxis;
-    
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        _movementAxis = transform.right;
+        try
+        {
+            if (other.gameObject.tag == "Mini")
+            {
+                Debug.Log("Destroy Bananas");
+                Destroy(other.gameObject);    
+            }
+        }
+        catch (Exception) { Debug.Log("Was already destroyed"); }
     }
+    
+
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            var deltaDir = _movementAxis * (speed * -1f);
-            _rigidbody.MovePosition(transform.position + deltaDir);
+            var deltaDir = new Vector3(speed * -1f, 0, 0);
+            var newLocalPos = transform.localPosition + deltaDir;
+            newLocalPos = Vector3.ClampMagnitude(newLocalPos, 15);
+            var newPos = transform.parent.TransformPoint(newLocalPos);
+            _rigidbody.MovePosition(newPos);
         }       
         
         if (Input.GetKey(KeyCode.D))
         {
-            var deltaDir = _movementAxis * speed;
-            _rigidbody.MovePosition(transform.position + deltaDir);
+            var deltaDir = new Vector3(speed, 0, 0);
+            var newLocalPos = transform.localPosition + deltaDir;
+            newLocalPos = Vector3.ClampMagnitude(newLocalPos, 15);
+            var newPos = transform.parent.TransformPoint(newLocalPos);
+            _rigidbody.MovePosition(newPos);
         } 
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
