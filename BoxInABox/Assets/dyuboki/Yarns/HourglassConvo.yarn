@@ -3,9 +3,6 @@
 <<fadeIn>>
 Hourglass: Hey
 Player: Hi
-<<fadeOut>>
-<<wait 3>>
-<<fadeIn>>
 <<jump Questions>>
 ===
 title: Questions
@@ -17,9 +14,9 @@ title: Questions
     Player: Oh you need to be somewhere else soon?
     Hourglass: No no, I just keep track of the time.
     <<jump Questions>>
--> ye
+-> oh my god
     Hourglass: yes
-    <<jump Questions>>
+    <<changeLevel>>    
 ===
 
 
