@@ -493,6 +493,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+--- !u!114 &832131035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+  m_PrefabInstance: {fileID: 832131034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3253278817509edb8bea74ab1d5ca73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &994289059
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,8 +539,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 0.0095291}
-  m_SizeDelta: {x: 1920, y: 1200}
+  m_AnchoredPosition: {x: -0.000030518, y: -0.0019569}
+  m_SizeDelta: {x: 1920, y: 1219.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994289061
 MonoBehaviour:
@@ -603,6 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a706b8cd0eec62219602ebe73668177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxItemMapping: {fileID: 832131035}
+  character: {fileID: 2128297670}
 --- !u!4 &1329063499
 Transform:
   m_ObjectHideFlags: 0
@@ -697,6 +710,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf1bbaff035bc45b5b7dcabfd9f36b85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1786628418536830384, guid: bf1bbaff035bc45b5b7dcabfd9f36b85, type: 3}
       propertyPath: m_Layer
       value: 20
@@ -762,7 +779,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904608837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -837,11 +854,11 @@ Camera:
   far clip plane: 10
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 1048577
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 9f7cd56621f2d56c39b3295a31f7fca6, type: 2}
   m_TargetDisplay: 0
@@ -863,7 +880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128297671}
   - component: {fileID: 2128297672}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1361,7 @@ MonoBehaviour:
   dialogueViews:
   - {fileID: 7778558436194695749}
   - {fileID: 3292657646900268977}
-  startNode: HourglassStart
+  startNode: TestConvo
   startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}

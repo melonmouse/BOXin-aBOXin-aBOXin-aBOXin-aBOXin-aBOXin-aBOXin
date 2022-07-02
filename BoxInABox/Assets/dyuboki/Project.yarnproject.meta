@@ -9,11 +9,9 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
   sourceScripts:
+  - {fileID: 6391573757903218779, guid: 3c8a5862929e9ac1d92252dfbb33f952, type: 3}
   - {fileID: 6391573757903218779, guid: 62de0d14b324d0bddbc35c4f6f7069ae, type: 3}
-  compileErrors:
-  - 'Parse errors exist in the following files:
-
-    Assets/dyuboki/Yarns/HourglassConvo.yarn'
+  compileErrors: []
   serializedDeclarations: []
   defaultLanguage: en-GB
   languagesToSourceAssets: []
