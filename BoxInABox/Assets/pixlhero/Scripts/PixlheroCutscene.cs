@@ -9,6 +9,9 @@ public class PixlheroCutscene : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera gameplayCamera;
 
+    [SerializeField]
+    private Transform levelParent;
+
     private CinemachineVirtualCamera _endCamera;
 
     private Endbox _endbox;
@@ -22,6 +25,25 @@ public class PixlheroCutscene : MonoBehaviour
     private void Start() {
         _endCamera = FindObjectOfType<Endbox>().GetComponentInChildren<CinemachineVirtualCamera>(true);
         _endbox = FindObjectOfType<Endbox>();
+
+        StartCutscene();
+    }
+
+    private void StartCutscene(){
+        var input = FindObjectOfType<PixlheroInput>();
+
+        input.enabled = false;
+
+        var startingCamera = levelParent.GetComponentInChildren<CinemachineVirtualCamera>(true);
+        
+        fadeOutCanvasGroup.alpha = 1f;
+        fadeOutCanvasGroup.DOFade(0f, 0.5f);
+
+        DOVirtual.DelayedCall(2f, () => {
+            input.enabled = true;
+        });
+
+        startingCamera.enabled = false;
     }
 
     public void PlayEnd(){
@@ -38,9 +60,9 @@ public class PixlheroCutscene : MonoBehaviour
 
         //Camera.main.GetComponent
         _endCamera.gameObject.SetActive(true);
-        _endCamera.transform.DOLocalMoveY(2f, 3f).SetEase(Ease.InQuad);
+        _endCamera.transform.DOLocalMoveY(2f, 2f).SetEase(Ease.InQuad);
 
         var sequence = DOTween.Sequence();
-        sequence.Insert(2.5f, fadeOutCanvasGroup.DOFade(1f, 0.5f));
+        sequence.Insert(1.5f, fadeOutCanvasGroup.DOFade(1f, 0.5f));
     }
 }

@@ -20,5 +20,6 @@ public class BoxItemState {
         Mallet,
         ButterflyCatchingNet,
         Banana,
+        HourGlass
     }
 }

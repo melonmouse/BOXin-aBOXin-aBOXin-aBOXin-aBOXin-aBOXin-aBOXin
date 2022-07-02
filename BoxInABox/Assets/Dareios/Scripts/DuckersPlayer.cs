@@ -11,6 +11,7 @@ public class DuckersPlayer : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +21,11 @@ public class DuckersPlayer : MonoBehaviour
             transform.position += Vector3.forward * speed * Time.deltaTime;
 
             animator.SetFloat("speed", (Vector3.forward * speed * Time.deltaTime).magnitude);
+
+            if(transform.position.z > 7.5)
+            {
+                transform.position += Vector3.back * 2 * speed * Time.deltaTime;
+            }
         }
         if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -27,6 +33,11 @@ public class DuckersPlayer : MonoBehaviour
             transform.position += Vector3.back * speed * Time.deltaTime;
 
             animator.SetFloat("speed", (Vector3.back * speed * Time.deltaTime).magnitude);
+
+            if (transform.position.z < -11)
+            {
+                transform.position += Vector3.forward * 2 * speed * Time.deltaTime;
+            }
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
@@ -34,6 +45,11 @@ public class DuckersPlayer : MonoBehaviour
             transform.position += Vector3.left * speed * Time.deltaTime;
 
             animator.SetFloat("speed", (Vector3.left * speed * Time.deltaTime).magnitude);
+
+            if (transform.position.x < -9)
+            {
+                transform.position += Vector3.right * 2 * speed * Time.deltaTime;
+            }
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
@@ -41,6 +57,11 @@ public class DuckersPlayer : MonoBehaviour
             transform.position += Vector3.right * speed * Time.deltaTime;
 
             animator.SetFloat("speed", (Vector3.right * speed * Time.deltaTime).magnitude);
+
+            if (transform.position.x > 9)
+            {
+                transform.position += Vector3.left * 2 * speed * Time.deltaTime;
+            }
         }
 
         if(Input.anyKey == false)
@@ -58,9 +79,7 @@ public class DuckersPlayer : MonoBehaviour
 
         if (collision.gameObject.name == "portalBox")
         {
-            System.Random rnd = new System.Random();
-            int nextScene = rnd.Next(1, 6);
-            SceneManager.LoadScene(nextScene);
+            SceneTransition.GoToRandomNextScene();
         }
     }
 }
