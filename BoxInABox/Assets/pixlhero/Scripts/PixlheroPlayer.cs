@@ -28,6 +28,9 @@ public class PixlheroPlayer : MonoBehaviour
     [SerializeField]
     private DuckCanvas duckCanvas;
 
+    [SerializeField]
+    private PixlheroCutscene cutscenes;
+
     private void Awake() {
         _orienter = GetComponent<Orienter>();
         _input = GetComponent<PixlheroInput>();
@@ -65,7 +68,12 @@ public class PixlheroPlayer : MonoBehaviour
         if(BoxItemState.Instance.HeldItem == BoxItemState.Item.BaseItem){
             return;
         }
-        
-        SceneTransition.GoToRandomNextScene();
+
+        //SceneTransition.GoToRandomNextScene();
+        cutscenes.PlayEnd();
+
+
+        duckCanvas.gameObject.SetActive(false);
+        _input.enabled = false;
     }
 }

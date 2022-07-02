@@ -11,6 +11,10 @@ public class PixlheroInput : MonoBehaviour
 
     public Vector2 GetMoveDirection(){
         Vector2 moveDirection = Vector2.zero;
+
+        if(!enabled)
+            return moveDirection;
+
         if(Input.GetKey(KeyCode.W)){
             moveDirection.y += 1;
         }
