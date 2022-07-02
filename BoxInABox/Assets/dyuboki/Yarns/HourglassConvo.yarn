@@ -1,0 +1,25 @@
+﻿title: HourglassStart
+---
+<<fadeIn>>
+Hourglass: Hey
+Player: Hi
+<<fadeOut>>
+<<wait 3>>
+<<fadeIn>>
+<<jump Questions>>
+===
+title: Questions
+---
+-> So what do you do? What's your story?
+    Hourglass: ...
+    <<wait 2>>
+    Hourglass: I'm keeping track of the time
+    Player: Oh you need to be somewhere else soon?
+    Hourglass: No no, I just keep track of the time.
+    <<jump Questions>>
+-> ye
+    Hourglass: yes
+    <<jump Questions>>
+===
+
+
