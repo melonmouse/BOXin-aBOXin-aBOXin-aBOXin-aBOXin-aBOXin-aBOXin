@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(PixlheroInput))]
 [RequireComponent(typeof(Orienter))]
+[RequireComponent(typeof(PixlheroItemPickuper))]
 public class PixlheroPlayer : MonoBehaviour
 {
     [SerializeField]
@@ -19,9 +20,14 @@ public class PixlheroPlayer : MonoBehaviour
 
     private Orienter _orienter;
 
+    private PixlheroItemPickuper _itemPickuper;
+
     private void Awake() {
         _orienter = GetComponent<Orienter>();
         _input = GetComponent<PixlheroInput>();
+        _itemPickuper = GetComponent<PixlheroItemPickuper>();
+
+        _itemPickuper.OnItemPickedUp += OnItemPickedUp;
     }
 
     private void Update() {
@@ -37,5 +43,9 @@ public class PixlheroPlayer : MonoBehaviour
         var moveDir = followCamera.transform.TransformDirection(new Vector3(inputDir.x,  inputDir.y, 0f));
         transform.Translate(moveDir, Space.World);
         model.transform.LookAt(transform.position + moveDir, transform.up);
+    }
+
+    private void OnItemPickedUp(PixlheroItemPickup item){
+        Debug.Log("Picked up item" + item.itemType);
     }
 }
