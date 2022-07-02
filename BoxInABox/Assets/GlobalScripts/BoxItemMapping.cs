@@ -11,14 +11,14 @@ public class BoxItemMapping : MonoBehaviour {
 
     [SerializeField]
     public List<ItemAndGameObject> ItemPrefabs;
-    // The item that is contained in the box to be transfered into the next minigame
+    // The item that is contained in the box to be transferred into the next mini   game
     public GameObject GetHeldItemPrefab() {
-        foreach (ItemAndGameObject itemAndGameObject in ItemPrefabs) {
+        foreach (var itemAndGameObject in ItemPrefabs) {
             Assert.AreEqual(itemAndGameObject.item,
                 itemAndGameObject.prefab.GetComponent<ItemIdentifier>().item,
                 "");
             if (itemAndGameObject.item == BoxItemState.Instance.HeldItem) {
-                GameObject result = itemAndGameObject.prefab;
+                var result = itemAndGameObject.prefab;
                 return result;
             }
         }
