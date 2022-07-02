@@ -488,6 +488,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+      propertyPath: ItemPrefabs.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 2109831691644426297, guid: cff081a95d03d0c44a95f77da3a6fee4, type: 3}
     - target: {fileID: 7293484150086212869, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
       propertyPath: m_Name
       value: SystemPrefab
@@ -538,6 +542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+--- !u!1 &1090239177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4656082473106753320, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+  m_PrefabInstance: {fileID: 832131034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1159080955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -671,6 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabCar: {fileID: 5621392712435116452, guid: d4200b8be5699f44c8618f7a8f6b00e6, type: 3}
+  prefabBaseItems: {fileID: 1090239177}
 --- !u!4 &1576894256
 Transform:
   m_ObjectHideFlags: 0
