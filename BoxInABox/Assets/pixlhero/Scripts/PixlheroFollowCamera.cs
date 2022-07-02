@@ -5,6 +5,12 @@ using UnityEngine;
 public class PixlheroFollowCamera : MonoBehaviour
 {
     [SerializeField]
+    private float cameraLerpFactor;
+
+    [SerializeField]
+    private Transform actualCamera;
+
+    [SerializeField]
     private Transform player;
 
     [SerializeField]
@@ -23,5 +29,10 @@ public class PixlheroFollowCamera : MonoBehaviour
         transform.position = centerOnHeightPlane + radialVector * distance;
 
         transform.LookAt(player, player.up);
+
+
+        actualCamera.position = Vector3.Lerp(actualCamera.position, transform.position, cameraLerpFactor);
+        actualCamera.rotation = Quaternion.Lerp(actualCamera.rotation, transform.rotation, cameraLerpFactor);
+    
     }
 }

@@ -27,6 +27,10 @@ public class PixlheroInput : MonoBehaviour
         if(moveDirection.magnitude <= 0.01){
             return Vector2.zero;
         }
+        
+        if(Vector2.Angle(moveDirection, _previousDir) > 175f){
+            _previousDir = Quaternion.AngleAxis(10f, Vector3.forward) * _previousDir;
+        }
 
         var newDir = Vector3.Lerp(_previousDir, moveDirection, lerpSmoothFactor).normalized;
         _previousDir = newDir;
