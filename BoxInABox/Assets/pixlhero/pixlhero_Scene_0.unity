@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 409333626}
   - component: {fileID: 409333625}
   - component: {fileID: 409333624}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,13 +1034,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b40356a6068648c2a75e35d906a4dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPoints: 10
-  distance: 1
-  raycastDistance: 1
+  numberOfPoints: 200
+  distance: 0.5
+  raycastDistance: 2
   raycastMask:
     serializedVersion: 2
     m_Bits: 65536
-  downRaycastDistance: 1
+  downRaycastDistance: 3
 --- !u!4 &1996692844
 Transform:
   m_ObjectHideFlags: 0

@@ -25,10 +25,10 @@ public class Orienter : MonoBehaviour{
 
 
 
-    public bool Orient(Transform glider){
+    public bool Orient(){
         
-        if(Physics.Raycast(glider.position + glider.up, -glider.up, out var downHitInfo, downRaycastDistance, raycastMask.value, QueryTriggerInteraction.Ignore)){
-            glider.position = downHitInfo.point + glider.up * distance;
+        if(Physics.Raycast(transform.position + transform.up, -transform.up, out var downHitInfo, downRaycastDistance, raycastMask.value, QueryTriggerInteraction.Ignore)){
+            transform.position = downHitInfo.point + transform.up * distance;
         }
 
         var combinedDir = Vector3.zero;
@@ -46,22 +46,22 @@ public class Orienter : MonoBehaviour{
                 continue;
 
             Vector3 localPointOnSphere = new Vector3(x, y, z);
-            Vector3 pointOnSphere = glider.TransformDirection(localPointOnSphere);
+            Vector3 pointOnSphere = transform.TransformDirection(localPointOnSphere);
 
-            if(Physics.Raycast(glider.position, pointOnSphere, out var hitInfo, raycastDistance, raycastMask.value, QueryTriggerInteraction.Ignore)){
-                Debug.DrawLine(glider.position, glider.position + pointOnSphere * raycastDistance, Color.green);   
+            if(Physics.Raycast(transform.position, pointOnSphere, out var hitInfo, raycastDistance, raycastMask.value, QueryTriggerInteraction.Ignore)){
+                Debug.DrawLine(transform.position, transform.position + pointOnSphere * raycastDistance, Color.green);   
                 combinedDir += pointOnSphere;
             }else{
-                Debug.DrawLine(glider.position, glider.position + pointOnSphere * raycastDistance, Color.red);
+                Debug.DrawLine(transform.position, transform.position + pointOnSphere * raycastDistance, Color.red);
             }
         }
         
-        var appliedRot = Quaternion.Lerp(Quaternion.identity, Quaternion.FromToRotation(glider.up, -combinedDir), 0.1f);
-        glider.rotation = appliedRot * glider.rotation;
+        var appliedRot = Quaternion.Lerp(Quaternion.identity, Quaternion.FromToRotation(transform.up, -combinedDir), 0.1f);
+        transform.rotation = appliedRot * transform.rotation;
     
     
-        if(Physics.Raycast(glider.position, -glider.up, out var afterDownHitInfo, downRaycastDistance, raycastMask.value, QueryTriggerInteraction.Ignore)){
-            glider.position = afterDownHitInfo.point + glider.up * distance;
+        if(Physics.Raycast(transform.position, -transform.up, out var afterDownHitInfo, downRaycastDistance, raycastMask.value, QueryTriggerInteraction.Ignore)){
+            transform.position = afterDownHitInfo.point + transform.up * distance;
         }else{
             return false;
         }

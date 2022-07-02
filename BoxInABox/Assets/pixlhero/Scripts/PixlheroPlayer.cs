@@ -21,6 +21,7 @@ public class PixlheroPlayer : MonoBehaviour
 
     private void Update() {
         Move();
+        _orienter.Orient();
     }
 
     private void Move(){
