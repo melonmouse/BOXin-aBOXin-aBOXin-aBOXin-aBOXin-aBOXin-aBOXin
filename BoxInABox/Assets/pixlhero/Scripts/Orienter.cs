@@ -5,6 +5,10 @@ using UnityEngine;
 public class Orienter : MonoBehaviour{
 
     [SerializeField]
+    [Range(0f,1f)]
+    private float lerpSmoothFactor;
+
+    [SerializeField]
     private float numberOfPoints;
 
     [SerializeField]
@@ -55,8 +59,10 @@ public class Orienter : MonoBehaviour{
                 Debug.DrawLine(transform.position, transform.position + pointOnSphere * raycastDistance, Color.red);
             }
         }
+
+        var smoothedUp = Vector3.Lerp(transform.up, combinedDir, lerpSmoothFactor);
         
-        var appliedRot = Quaternion.Lerp(Quaternion.identity, Quaternion.FromToRotation(transform.up, -combinedDir), 0.1f);
+        var appliedRot = Quaternion.Lerp(Quaternion.identity, Quaternion.FromToRotation(transform.up, -combinedDir), lerpSmoothFactor);
         transform.rotation = appliedRot * transform.rotation;
     
     

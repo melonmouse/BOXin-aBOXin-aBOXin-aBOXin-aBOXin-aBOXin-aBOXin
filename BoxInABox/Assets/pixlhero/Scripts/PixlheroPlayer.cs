@@ -9,6 +9,11 @@ public class PixlheroPlayer : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
 
+    [SerializeField]
+    private PixlheroFollowCamera followCamera;
+
+    [SerializeField]
+    private Transform model;
 
     private PixlheroInput _input;
 
@@ -22,11 +27,15 @@ public class PixlheroPlayer : MonoBehaviour
     private void Update() {
         Move();
         _orienter.Orient();
+        followCamera.UpdateCamera();
     }
 
     private void Move(){
+        var check = transform.up;
+
         var inputDir = _input.GetMoveDirection() * Time.deltaTime * speed;
-        var moveDir = Camera.main.transform.TransformDirection(new Vector3(inputDir.x,  inputDir.y, 0f));
+        var moveDir = followCamera.transform.TransformDirection(new Vector3(inputDir.x,  inputDir.y, 0f));
         transform.Translate(moveDir, Space.World);
+        model.transform.LookAt(transform.position + moveDir, transform.up);
     }
 }
