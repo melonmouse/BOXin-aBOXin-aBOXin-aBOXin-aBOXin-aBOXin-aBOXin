@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 259389261}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1423763173}
@@ -475,6 +475,16 @@ MonoBehaviour:
   forceFactor: 1
   smallSpeedForceFactor: 0
   smallSpeedTreshold: 0
+  correctingForceFactor: 0
+  minX: -2
+  maxX: 2
+  minZ: -1
+  maxZ: 1
+  windFriction: 0
+  windSpeed: 0
+  windAdditions: 0
+  windAngle: 0
+  windAngleAdditions: 0
 --- !u!1001 &832131034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,7 +720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423763172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.87, y: -2.92, z: 0}
+  m_LocalPosition: {x: -0.31, y: -0.39, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -731,9 +741,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friction: 0.5
-  forceFactor: 3
+  forceFactor: 1
   smallSpeedForceFactor: 3
-  smallSpeedTreshold: 1
+  smallSpeedTreshold: 0.1
+  correctingForceFactor: 10
+  minX: -0.3
+  maxX: 0.3
+  minZ: -0.2
+  maxZ: 0.2
+  windFriction: 0.6
+  windSpeed: 0.09401729
+  windAdditions: 0.1
+  windAngle: 17.000319
+  windAngleAdditions: 30
 --- !u!114 &1558910957 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6702910051944070306, guid: 61af23844a2782c5b8eefec82c188444, type: 3}
