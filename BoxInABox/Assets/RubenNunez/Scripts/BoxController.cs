@@ -20,12 +20,24 @@ public class BoxController : MonoBehaviour
     
     private bool _isBoxOpen;
 
+    private void Start()
+    {
+        // input Item as Enum
+        var a = BoxItemState.Instance.HeldItem;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         try
         {
             if (other.gameObject.tag == "Mini")
             {
+                // here i will determine the exit condition
+                other.gameObject.GetComponent<ItemIdentifier>().SetAsHeldItem();
+                
+                // end the scene
+                SceneTransition.GoToRandomNextScene();
+                
                 Debug.Log("Destroy Bananas");
                 Destroy(other.gameObject);    
             }

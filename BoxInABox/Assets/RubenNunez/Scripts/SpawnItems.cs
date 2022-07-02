@@ -38,7 +38,7 @@ public class SpawnItems : MonoBehaviour
             if (Time.frameCount % rateAtWhichItemsAreSpawned == 0 &&
                 _items.Count < _itemsCapacity)
             {
-                var item = Instantiate(prefabs[Random.Range(0, prefabs.Count - 1)], GetRandomPointBetweenStartAndEnd(),
+                var item = Instantiate(prefabs[Random.Range(0, prefabs.Count)], GetRandomPointBetweenStartAndEnd(),
                     Random.rotation);
                 
                 item.transform.SetParent(itemsContainer);

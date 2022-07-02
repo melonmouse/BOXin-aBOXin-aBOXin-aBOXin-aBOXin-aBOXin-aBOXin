@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3018070782482572035}
+  - component: {fileID: 1430220511748542721}
+  - component: {fileID: 6235341837644375320}
   - component: {fileID: 2183556389628341414}
   - component: {fileID: 4154988188487915628}
   - component: {fileID: 2183556389628341415}
   - component: {fileID: 2183556389628341416}
   m_Layer: 0
-  m_Name: Banana
+  m_Name: BananaMini
   m_TagString: Mini
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +37,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -42.382}
+--- !u!114 &1430220511748542721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497676789240543673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6257bbbe4e0140ebb0297efbfc7de270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemType: 4
+--- !u!114 &6235341837644375320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497676789240543673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be86ddedf8fccf41489ba04f201c4210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 4
 --- !u!33 &2183556389628341414
 MeshFilter:
   m_ObjectHideFlags: 0
