@@ -16,6 +16,15 @@ public class FreefallCharacterController : MonoBehaviour
     public float minZ;
     public float maxZ;
 
+    public float windFriction;
+    public float windSpeed;
+    public float windAdditions;
+    public float windAngle;
+    public float windAngleAdditions;
+    // TODO add particles
+    // TODO consider adding wind angle speed
+    // TODO switch to some noise function for wind angle and speed
+
     void Update()
     {
         Vector2 input = Inputs.Direction();
@@ -24,6 +33,21 @@ public class FreefallCharacterController : MonoBehaviour
         {
             force *= smallSpeedForceFactor;
         }
+
+        speed *= Mathf.Pow(friction, Time.deltaTime);
+
+        windSpeed += Random.Range(0f, 1f)* windAdditions * Time.deltaTime;
+        windSpeed *= Mathf.Pow(windFriction, Time.deltaTime);
+        windAngle += Random.Range(-1f, 1f)*windAngleAdditions*Time.deltaTime;
+        windAngle %= 360;
+
+        Vector3 windForce = windSpeed * new Vector3(
+            Mathf.Cos(windAngle * Mathf.Deg2Rad),
+            0,
+            Mathf.Sin(windAngle * Mathf.Deg2Rad)
+        );
+
+        force += windForce;
         force += BoundingForce();
         speed += force * Time.deltaTime * forceFactor;
         speed *= Mathf.Pow(friction, Time.deltaTime);

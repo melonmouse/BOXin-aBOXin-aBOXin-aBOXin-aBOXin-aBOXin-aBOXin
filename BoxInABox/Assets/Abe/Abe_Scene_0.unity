@@ -480,6 +480,11 @@ MonoBehaviour:
   maxX: 2
   minZ: -1
   maxZ: 1
+  windFriction: 0
+  windSpeed: 0
+  windAdditions: 0
+  windAngle: 0
+  windAngleAdditions: 0
 --- !u!1001 &832131034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -744,6 +749,11 @@ MonoBehaviour:
   maxX: 0.3
   minZ: -0.2
   maxZ: 0.2
+  windFriction: 0.6
+  windSpeed: 0.09401729
+  windAdditions: 0.1
+  windAngle: 17.000319
+  windAngleAdditions: 30
 --- !u!114 &1558910957 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6702910051944070306, guid: 61af23844a2782c5b8eefec82c188444, type: 3}
