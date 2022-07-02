@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 4
+  modelParent: {fileID: 7326736721872450757}
+  rotateSpeed: 50
 --- !u!1 &3050669432511235259
 GameObject:
   m_ObjectHideFlags: 0

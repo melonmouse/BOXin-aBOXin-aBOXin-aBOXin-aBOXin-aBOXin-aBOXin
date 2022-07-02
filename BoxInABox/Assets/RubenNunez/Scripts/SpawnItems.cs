@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -22,12 +23,12 @@ public class SpawnItems : MonoBehaviour
     [SerializeField]
     private bool shouldSpawnItems;
 
-    private List<GameObject> _items;
-    private const int _itemsCapacity = 10;
+    private Queue<GameObject> _items;
+    private const int _itemsCapacity = 100;
 
     private void Start()
     {
-        _items = new List<GameObject>(_itemsCapacity);
+        _items = new Queue<GameObject>(_itemsCapacity);
     }
 
     private void Update()
@@ -38,18 +39,24 @@ public class SpawnItems : MonoBehaviour
                 _items.Count < _itemsCapacity)
             {
                 var item = Instantiate(prefabs[Random.Range(0, prefabs.Count - 1)], GetRandomPointBetweenStartAndEnd(),
-                    Quaternion.identity);
+                    Random.rotation);
                 
                 item.transform.SetParent(itemsContainer);
                 
-                _items.Add(item);
+                _items.Enqueue(item);
+            }
+
+            if (_items.Count == _itemsCapacity)
+            {
+                var itemToDestroy = _items.Dequeue();
+                try { Destroy(itemToDestroy); }
+                catch (Exception) { Debug.Log("Was already destroyed"); }
             }
         }
     }
 
     private Vector3 GetRandomPointBetweenStartAndEnd()
     {
-        Debug.Log(Random.Range(0, 1));
         return Vector3.Lerp(start.position, end.position, Random.Range(0f, 1f));
 
     }
