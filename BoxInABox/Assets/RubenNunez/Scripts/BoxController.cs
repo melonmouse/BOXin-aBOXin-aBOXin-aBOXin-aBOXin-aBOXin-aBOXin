@@ -1,16 +1,21 @@
 using System;
+using DG.Tweening;
+using RubenNunez.Scripts;
 using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
     [SerializeField]
+    private BoxCatcherSceneController _boxCatcherSceneController;
+    
+    [SerializeField]
     private float speed = 0.05f;
 
     [SerializeField]
     private GameObject _closed;
-    
+
     [SerializeField]
-    private GameObject _trigger;
+    private GameObject _warningPopUp;
 
     [SerializeField]
     private Animator _boxAnimator;
@@ -19,31 +24,49 @@ public class BoxController : MonoBehaviour
     private Rigidbody _rigidbody;
     
     private bool _isBoxOpen;
-
-    private void Start()
-    {
-        // input Item as Enum
-        var a = BoxItemState.Instance.HeldItem;
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!_isBoxOpen) return;
+        
         try
         {
             if (other.gameObject.tag == "Mini")
             {
-                // here i will determine the exit condition
+                // check if Global Item is other.GameObject
+                if (other.gameObject.GetComponent<ItemIdentifier>().item
+                    == _boxCatcherSceneController.InputItem)
+                {
+                    // ShowWarning PopUp and Destroy Item
+                    ShowWarning();
+                    Destroy(other.gameObject); 
+                    return;
+                }
+
+                // here is the exit condition
                 other.gameObject.GetComponent<ItemIdentifier>().SetAsHeldItem();
                 
                 // end the scene
-                SceneTransition.GoToRandomNextScene();
-                
                 Debug.Log("Destroy Bananas");
-                Destroy(other.gameObject);    
+                Destroy(other.gameObject);
+                
+                SceneTransition.GoToRandomNextScene();
             }
         }
         catch (Exception) { Debug.Log("Was already destroyed"); }
     }
+
+    private void ShowWarning()
+    {
+        var warningCanvasGroup =_warningPopUp.GetComponentInChildren<CanvasGroup>();
+        var sequence = DOTween.Sequence();
+        sequence.Insert(0, _warningPopUp.transform.DOShakeScale(0.5f));
+        sequence.Insert(0, warningCanvasGroup.DOFade(1f, 0.3f));
+        sequence.Insert(2, warningCanvasGroup.DOFade(0f, 0.5f));
+
+    }
+    
     
 
 

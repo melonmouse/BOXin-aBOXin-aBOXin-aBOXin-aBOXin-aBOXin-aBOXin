@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2180609697744643641}
   - component: {fileID: 2180609697744643642}
   m_Layer: 0
-  m_Name: SandClockMini
+  m_Name: HourGlassMini
   m_TagString: Mini
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
