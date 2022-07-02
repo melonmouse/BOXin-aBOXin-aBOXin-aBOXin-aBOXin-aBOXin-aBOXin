@@ -15,11 +15,14 @@ public static class SceneTransition
         "SanGiga_Scene_0"
     };
 
+    private static List<string> unplayedScenes = new List<string>(_candidateSceneNames);
+
     //TODO decide what exactly the scene ordering should be and change this accordingly
     public static void GoToRandomNextScene(){
-        var currentSceneName = SceneManager.GetActiveScene().name;
-        var nextListCandidates = _candidateSceneNames.Where(scene => scene != currentSceneName).ToList();
-        var chosenScene = nextListCandidates[Random.Range(0, nextListCandidates.Count)];
-        SceneManager.LoadScene(chosenScene, LoadSceneMode.Single);
+        // For now: play every scene once
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        int chosenSceneIndex = Random.Range(0, nextListCandidates.Count);
+        SceneManager.LoadScene(unplayedScenes[i], LoadSceneMode.Single);
+        unplayedScenes.RemoveAt(chosenSceneIndex);
     }
 }
