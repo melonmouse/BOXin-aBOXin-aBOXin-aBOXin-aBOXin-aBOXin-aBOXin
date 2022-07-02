@@ -16,5 +16,8 @@ public class BoxItemState {
     public enum Item {
         // add items
         BaseItem,
+        Motorcycle,
+        Mallet,
+        ButterflyCatchingNet,
     }
 }
