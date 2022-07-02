@@ -75,7 +75,7 @@ public class MotorcycleController : MonoBehaviour
         Debug.Log("OnTriggerEnter");
 
         if (!other.CompareTag("Road"))
-        {
+        {// TODO: change GetComponentInParent to GetComponent in case I change where the collider is in the prefabs use
             // below I will activate on the current held object on the top right corner
             if (other.GetComponentInParent<ItemIdentifier>().item == BoxItemState.Item.Banana)
             {
