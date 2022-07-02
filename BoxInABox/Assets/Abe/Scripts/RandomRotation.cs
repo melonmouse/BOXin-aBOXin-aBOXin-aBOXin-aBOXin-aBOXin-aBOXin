@@ -15,5 +15,4 @@ public class RandomRotation : MonoBehaviour
         transform.eulerAngles = new Vector3(0, angle, 0);
     }
 
-    void S
 }
