@@ -21,8 +21,8 @@ public static class SceneTransition
     public static void GoToRandomNextScene(){
         // For now: play every scene once
         string currentSceneName = SceneManager.GetActiveScene().name;
-        int chosenSceneIndex = Random.Range(0, nextListCandidates.Count);
-        SceneManager.LoadScene(unplayedScenes[i], LoadSceneMode.Single);
+        int chosenSceneIndex = Random.Range(0, unplayedScenes.Count);
+        SceneManager.LoadScene(unplayedScenes[chosenSceneIndex], LoadSceneMode.Single);
         unplayedScenes.RemoveAt(chosenSceneIndex);
     }
 }
