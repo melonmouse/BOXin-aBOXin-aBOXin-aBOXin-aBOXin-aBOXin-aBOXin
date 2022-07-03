@@ -51,7 +51,7 @@ public class BoxController : MonoBehaviour
                 Debug.Log("Destroy Bananas");
                 Destroy(other.gameObject);
                 
-                SceneTransition.GoToRandomNextScene();
+               _boxCatcherSceneController.EndSceneAndGotoNext();
             }
         }
         catch (Exception) { Debug.Log("Was already destroyed"); }
