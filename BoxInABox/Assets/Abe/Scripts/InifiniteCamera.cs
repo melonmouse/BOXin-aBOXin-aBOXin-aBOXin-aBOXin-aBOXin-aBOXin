@@ -29,7 +29,7 @@ public class InifiniteCamera : MonoBehaviour
         }
         transform.Translate(new Vector3(0, height - transform.position.y, 0));
 
-        if (Random.value < 1e-3)
+        if (Random.value < 1e-5)
         {
             wrapBack = false;
         }

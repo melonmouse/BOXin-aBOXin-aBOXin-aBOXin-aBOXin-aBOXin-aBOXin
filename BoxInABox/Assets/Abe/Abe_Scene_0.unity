@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: ItemPrefabs.Array.data[0].prefab
       value: 
       objectReference: {fileID: 3513626510364136906, guid: b802e2131382cba41b6693aec265f5d0, type: 3}
+    - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+      propertyPath: ItemPrefabs.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 8950105857558687936, guid: 5a58a75143bddf99c979b45be03ef0cd, type: 3}
     - target: {fileID: 7293484150086212869, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
       propertyPath: m_Name
       value: SystemPrefab
