@@ -63,6 +63,8 @@ public class PixlheroCutscene : MonoBehaviour
         _endCamera.transform.DOLocalMoveY(2f, 2f).SetEase(Ease.InQuad);
 
         var sequence = DOTween.Sequence();
-        sequence.Insert(1.5f, fadeOutCanvasGroup.DOFade(1f, 0.5f));
+        sequence.Insert(1.5f, fadeOutCanvasGroup.DOFade(1f, 0.5f)).OnComplete(() => {
+            SceneTransition.GoToRandomNextScene();
+        });
     }
 }

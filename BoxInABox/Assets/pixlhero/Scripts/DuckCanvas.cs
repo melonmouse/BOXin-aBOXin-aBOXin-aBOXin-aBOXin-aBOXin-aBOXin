@@ -8,13 +8,8 @@ public class DuckCanvas : MonoBehaviour
     [SerializeField]
     private Transform modelRoot;
 
-    private BoxItemMapping _itemMapping;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        _itemMapping = FindObjectOfType<BoxItemMapping>();
-    }
+    [SerializeField]
+    private BoxItemMapping itemMapping;
 
     // Update is called once per frame
     void Update()
@@ -33,7 +28,7 @@ public class DuckCanvas : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        var itemPrefab = _itemMapping.GetItemPrefab(itemType);
+        var itemPrefab = itemMapping.GetItemPrefab(itemType);
         var itemInstance = Instantiate(itemPrefab, modelRoot);
         itemInstance.transform.localPosition = Vector3.zero;
         itemInstance.transform.localRotation = Quaternion.identity;

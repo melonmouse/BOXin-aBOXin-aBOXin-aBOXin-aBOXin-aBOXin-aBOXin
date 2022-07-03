@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 [RequireComponent(typeof(PixlheroInput))]
 [RequireComponent(typeof(Orienter))]
 [RequireComponent(typeof(PixlheroItemPickuper))]
@@ -38,6 +38,10 @@ public class PixlheroPlayer : MonoBehaviour
 
         _itemPickuper.OnItemPickedUp += OnItemPickedUp;
         _itemPickuper.EndboxTouched += OnEndboxTouched;
+    }
+
+    private void Start() {
+        BoxItemState.Instance.HeldItem = BoxItemState.Item.BaseItem;
     }
 
     private void Update() {
