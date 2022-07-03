@@ -83,7 +83,7 @@ public class BoxController : MonoBehaviour
         {
             var deltaDir = new Vector3(speed * -1f, 0, 0);
             var newLocalPos = transform.localPosition + deltaDir;
-            newLocalPos = Vector3.ClampMagnitude(newLocalPos, 15);
+            newLocalPos = Vector3.ClampMagnitude(newLocalPos, 10);
             var newPos = transform.parent.TransformPoint(newLocalPos);
             _rigidbody.MovePosition(newPos);
         }       
@@ -92,7 +92,7 @@ public class BoxController : MonoBehaviour
         {
             var deltaDir = new Vector3(speed, 0, 0);
             var newLocalPos = transform.localPosition + deltaDir;
-            newLocalPos = Vector3.ClampMagnitude(newLocalPos, 15);
+            newLocalPos = Vector3.ClampMagnitude(newLocalPos, 10);
             var newPos = transform.parent.TransformPoint(newLocalPos);
             _rigidbody.MovePosition(newPos);
         } 
