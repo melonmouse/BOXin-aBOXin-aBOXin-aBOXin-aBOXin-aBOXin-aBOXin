@@ -32,16 +32,12 @@ public class PixlheroCutscene : MonoBehaviour
     private void StartCutscene(){
         var input = FindObjectOfType<PixlheroInput>();
 
-        input.enabled = false;
 
         var startingCamera = levelParent.GetComponentInChildren<CinemachineVirtualCamera>(true);
         
         fadeOutCanvasGroup.alpha = 1f;
         fadeOutCanvasGroup.DOFade(0f, 0.5f);
 
-        DOVirtual.DelayedCall(2f, () => {
-            input.enabled = true;
-        });
 
         startingCamera.enabled = false;
     }
