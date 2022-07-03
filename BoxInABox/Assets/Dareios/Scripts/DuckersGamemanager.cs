@@ -60,10 +60,8 @@ public class DuckersGamemanager : MonoBehaviour
     {
         for(int i = 0; i < itemManager.transform.childCount; i++)
         {
-            Debug.Log("set false");
             itemManager.transform.GetChild(i).gameObject.SetActive(false);
         }
-        Debug.Log("set active");
         itemManager.transform.GetChild(itemNumber).gameObject.SetActive(true);
     }
 
@@ -83,11 +81,11 @@ public class DuckersGamemanager : MonoBehaviour
             }
             if (carLane == 1)
             {
-                Instantiate(prefabCar, new Vector3(-12, 0.5f, -6), Quaternion.LookRotation(Vector3.right));
+                Instantiate(prefabCar, new Vector3(-13, 0.5f, -6), Quaternion.LookRotation(Vector3.right));
             }
             else
             {
-                Instantiate(prefabCar, new Vector3(12, 0.5f, carLane * 4.5f - 10.5f), Quaternion.LookRotation(Vector3.left));
+                Instantiate(prefabCar, new Vector3(13, 0.5f, carLane * 4.5f - 10.5f), Quaternion.LookRotation(Vector3.left));
             }
 
             blockedLane = carLane;
@@ -99,6 +97,11 @@ public class DuckersGamemanager : MonoBehaviour
             {
                 ActivateItem();
                 itemActivated = true;
+
+                for (int i = 0; i < itemManager.transform.childCount; i++)
+                {
+                    itemManager.transform.GetChild(i).gameObject.SetActive(false);
+                }
             }
         }
     }
