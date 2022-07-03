@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FollowRider : MonoBehaviour
 {
-    // TODO: add poster outdoor of subtheme random French Actress
 
     public GameObject rider;
 
