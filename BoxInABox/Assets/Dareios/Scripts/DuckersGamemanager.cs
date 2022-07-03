@@ -11,13 +11,14 @@ public class DuckersGamemanager : MonoBehaviour
     public GameObject player;
 
     private int blockedLane;
+    private bool itemActivated = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(prefabCar, new Vector3(-10, 0.5f, -6), Quaternion.identity);
-        Instantiate(prefabCar, new Vector3(10, 0.5f, -1.5f), Quaternion.identity);
-        Instantiate(prefabCar, new Vector3(10, 0.5f, 3), Quaternion.identity);
+        Instantiate(prefabCar, new Vector3(-10, 0.5f, -6), Quaternion.LookRotation(Vector3.right));
+        Instantiate(prefabCar, new Vector3(10, 0.5f, -1.5f), Quaternion.LookRotation(Vector3.left));
+        Instantiate(prefabCar, new Vector3(10, 0.5f, 3), Quaternion.LookRotation(Vector3.left));
 
         System.Random rnd = new System.Random();
         int lane = rnd.Next(1, 4);
@@ -25,9 +26,11 @@ public class DuckersGamemanager : MonoBehaviour
         lane = rnd.Next(1, 4);
         Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Mallet), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(-24.1f, 50.2f, -41.8f));
         lane = rnd.Next(1, 4);
-        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Motorcycle), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(0f, 89f, 41.9f));
+        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Motorcycle), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(0f, -90f, -60f));
         lane = rnd.Next(1, 4);
         Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.ButterflyCatchingNet), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(2.4f, 60.4f, 50f));
+        lane = rnd.Next(1, 4);
+        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.HourGlass), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(33.3f, 0f, 0f));
 
 
         heldItem = prefabBaseItems.GetComponent<BoxItemMapping>().GetHeldItemPrefab();
@@ -46,6 +49,10 @@ public class DuckersGamemanager : MonoBehaviour
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
         {
             ActivateItemNumbered(3);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.HourGlass)
+        {
+            ActivateItemNumbered(4);
         }
     }
 
@@ -76,11 +83,11 @@ public class DuckersGamemanager : MonoBehaviour
             }
             if (carLane == 1)
             {
-                Instantiate(prefabCar, new Vector3(-12, 0.5f, -6), Quaternion.identity);
+                Instantiate(prefabCar, new Vector3(-12, 0.5f, -6), Quaternion.LookRotation(Vector3.right));
             }
             else
             {
-                Instantiate(prefabCar, new Vector3(12, 0.5f, carLane * 4.5f - 10.5f), Quaternion.identity);
+                Instantiate(prefabCar, new Vector3(12, 0.5f, carLane * 4.5f - 10.5f), Quaternion.LookRotation(Vector3.left));
             }
 
             blockedLane = carLane;
@@ -88,7 +95,11 @@ public class DuckersGamemanager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Return))
         {
-            ActivateItem();
+            if (!itemActivated)
+            {
+                ActivateItem();
+                itemActivated = true;
+            }
         }
     }
 
@@ -96,19 +107,27 @@ public class DuckersGamemanager : MonoBehaviour
     {
         if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Banana)
         {
-            prefabCar.GetComponent<DuckersCarController>().setSpeed(6.0f);
+            player.transform.localScale *= 2;
         }
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.ButterflyCatchingNet)
         {
-            ActivateItemNumbered(1);
+            System.Random rnd = new System.Random();
+            int objectIndex = rnd.Next(0, GameObject.FindGameObjectsWithTag("itemToCollect").Length);
+            GameObject.FindGameObjectsWithTag("itemToCollect")[objectIndex].transform.position = player.transform.position;
         }
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Mallet)
         {
-            ActivateItemNumbered(2);
+            System.Random rnd = new System.Random();
+            int objectIndex = rnd.Next(0, GameObject.FindGameObjectsWithTag("duckersCar").Length);
+            Destroy(GameObject.FindGameObjectsWithTag("duckersCar")[objectIndex]);
         }
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
         {
             player.GetComponent<DuckersCarController>().setSpeed(4.8f);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.HourGlass)
+        {
+            prefabCar.GetComponent<DuckersCarController>().setSpeed(4.0f);
         }
     }
 

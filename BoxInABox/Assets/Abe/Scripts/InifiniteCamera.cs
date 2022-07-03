@@ -9,6 +9,10 @@ public class InifiniteCamera : MonoBehaviour
     public float wrap_to;
     public RandomRotation rotationManager;
     public bool wrapBack;
+
+    public float camera_angle = 0f;
+    public float camera_rotation_speed;
+
     void Update()
     {
         float height = transform.position.y;
@@ -25,7 +29,7 @@ public class InifiniteCamera : MonoBehaviour
         }
         transform.Translate(new Vector3(0, height - transform.position.y, 0));
 
-        if (Random.value < 1e-3)
+        if (Random.value < 1e-5)
         {
             wrapBack = false;
         }
@@ -34,6 +38,7 @@ public class InifiniteCamera : MonoBehaviour
         {
             SceneTransition.GoToRandomNextScene();
         }
-
+        camera_angle += camera_rotation_speed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(Vector3.up * camera_angle);
     }
 }
