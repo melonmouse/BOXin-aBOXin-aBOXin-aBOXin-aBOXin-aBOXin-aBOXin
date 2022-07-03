@@ -64,12 +64,8 @@ public class BoxController : MonoBehaviour
         sequence.Insert(0, _warningPopUp.transform.DOShakeScale(0.5f));
         sequence.Insert(0, warningCanvasGroup.DOFade(1f, 0.3f));
         sequence.Insert(2, warningCanvasGroup.DOFade(0f, 0.5f));
-
     }
     
-    
-
-
     private void Update()
     {
         if (Input.GetKey(KeyCode.A))
