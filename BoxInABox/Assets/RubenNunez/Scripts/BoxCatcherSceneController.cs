@@ -54,6 +54,9 @@ namespace RubenNunez.Scripts
 
         public void EndSceneAndGotoNext()
         {
+            if(_lookAtBox)
+                return;
+
             var animator = _box.GetComponent<Animator>();
             _box.gameObject.SetActive(true);
             _lookAtBox = true;
