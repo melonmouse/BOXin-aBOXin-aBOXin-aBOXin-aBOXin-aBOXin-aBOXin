@@ -7,6 +7,7 @@ public class DuckersGamemanager : MonoBehaviour
     public GameObject prefabCar;
     public GameObject prefabBaseItems;
     public GameObject heldItem;
+    public GameObject itemManager;
     private int blockedLane;
 
     // Start is called before the first frame update
@@ -18,9 +19,9 @@ public class DuckersGamemanager : MonoBehaviour
 
         System.Random rnd = new System.Random();
         int lane = rnd.Next(1, 4);
-        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Banana), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(-2.3f, 25f, 67.5f));
+        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Banana), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(-16.9f, 27.8f, 84.9f));
         lane = rnd.Next(1, 4);
-        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Mallet), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(72.3f, 117.5f, 40.2f));
+        Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Mallet), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(-24.1f, 50.2f, -41.8f));
         lane = rnd.Next(1, 4);
         Instantiate(prefabBaseItems.GetComponent<BoxItemMapping>().GetItemPrefab(BoxItemState.Item.Motorcycle), new Vector3(Random.Range(-7f, 7f), 0.5f, changeItemLane(lane)), Quaternion.Euler(0f, 89f, 41.9f));
         lane = rnd.Next(1, 4);
@@ -28,6 +29,38 @@ public class DuckersGamemanager : MonoBehaviour
 
 
         heldItem = prefabBaseItems.GetComponent<BoxItemMapping>().GetHeldItemPrefab();
+        Debug.Log(heldItem.GetComponent<ItemIdentifier>().item);
+        if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Banana)
+        {
+            Debug.Log("Activate banana");
+            ActivateItemNumbered(0);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.ButterflyCatchingNet)
+        {
+            Debug.Log("Activate bug net");
+            ActivateItemNumbered(1);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Mallet)
+        {
+            Debug.Log("Activate mallet");
+            ActivateItemNumbered(2);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
+        {
+            Debug.Log("Activate motorcycle");
+            ActivateItemNumbered(3);
+        }
+    }
+
+    public void ActivateItemNumbered(int itemNumber)
+    {
+        for(int i = 0; i < itemManager.transform.childCount; i++)
+        {
+            Debug.Log("set false");
+            itemManager.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        Debug.Log("set active");
+        itemManager.transform.GetChild(itemNumber).gameObject.SetActive(true);
     }
 
     // Update is called once per frame

@@ -9,6 +9,8 @@ public class MotorcycleController : MonoBehaviour
     //TODO: add motorcycle SFX to Rider / Audio Source
     //TODO: add BG Music to BGMusicPlayer / Audio Source
 
+    //TODO: make motorcycle wheels rotate
+
     float xInput;
     public float xSteerSpeed;
     public float xLimit;
