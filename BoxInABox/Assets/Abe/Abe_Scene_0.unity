@@ -210,7 +210,7 @@ MonoBehaviour:
   rotationManager: {fileID: 1099608995}
   wrapBack: 1
   camera_angle: 0
-  camera_rotation_speed: 0.1
+  camera_rotation_speed: 3
 --- !u!1 &259389261
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -534,6 +534,8 @@ MonoBehaviour:
   windAdditions: 0
   windAngle: 0
   windAngleAdditions: 0
+  verticalBob_duration: 0
+  verticalBob_magnitude: 0
 --- !u!1001 &832131034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -818,6 +820,8 @@ MonoBehaviour:
   windAdditions: 0.1
   windAngle: 17.000319
   windAngleAdditions: 30
+  verticalBob_duration: 3
+  verticalBob_magnitude: -0.45
 --- !u!114 &1558910957 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6702910051944070306, guid: 61af23844a2782c5b8eefec82c188444, type: 3}

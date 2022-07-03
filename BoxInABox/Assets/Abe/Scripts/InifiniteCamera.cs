@@ -39,6 +39,6 @@ public class InifiniteCamera : MonoBehaviour
             SceneTransition.GoToRandomNextScene();
         }
         camera_angle += camera_rotation_speed * Time.deltaTime;
-        transform.rotation = Quaternion.EulerAngles(Vector3.up * camera_angle);
+        transform.rotation = Quaternion.Euler(Vector3.up * camera_angle);
     }
 }
