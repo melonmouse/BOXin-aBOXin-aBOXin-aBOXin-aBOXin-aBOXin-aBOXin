@@ -102,6 +102,10 @@ public class DuckersPlayer : MonoBehaviour
             {
                 collector.GetComponent<Collectormanager>().ActivateCollected(3);
             }
+            else if (BoxItemState.Instance.HeldItem == BoxItemState.Item.HourGlass)
+            {
+                collector.GetComponent<Collectormanager>().ActivateCollected(4);
+            }
 
             collision.gameObject.SetActive(false);
         }
