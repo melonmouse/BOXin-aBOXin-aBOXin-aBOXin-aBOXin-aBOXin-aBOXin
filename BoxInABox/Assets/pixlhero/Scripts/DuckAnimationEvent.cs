@@ -5,7 +5,7 @@ using UnityEngine;
 public class DuckAnimationEvent : MonoBehaviour
 {
     [SerializeField]
-    private ParticleSystem particleSystem;
+    private ParticleSystem particles;
 
     public void StepLeft(){
         TriggerParticleSystem(true);
@@ -16,7 +16,7 @@ public class DuckAnimationEvent : MonoBehaviour
     }
 
     private void TriggerParticleSystem(bool left){
-        particleSystem.transform.parent.localScale = new Vector3(left ? -1 : 1, 1, 1);
-        particleSystem.Play();
+        particles.transform.parent.localScale = new Vector3(left ? -1 : 1, 1, 1);
+        particles.Play();
     }
 }
