@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5598834fe1863459d933fb68dd9554e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelRotationSpeed: 10
+  wheelRotationSpeed: 100
 --- !u!1 &468085145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1535,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7592526b814f1404cb283d29a15ba63f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5951,6 +5951,9 @@ MonoBehaviour:
   _boxCatcherSceneController: {fileID: 0}
   speed: 0.05
   _closed: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _audioOpen: {fileID: 0}
+  _audioClose: {fileID: 0}
   _warningPopUp: {fileID: 0}
   _boxAnimator: {fileID: 2050066689}
   _rigidbody: {fileID: 0}
@@ -6193,7 +6196,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6ef4f2793c6904a4e85e12da4404433f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6635,6 +6638,9 @@ MonoBehaviour:
   _boxCatcherSceneController: {fileID: 0}
   speed: 0.05
   _closed: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _audioOpen: {fileID: 0}
+  _audioClose: {fileID: 0}
   _warningPopUp: {fileID: 0}
   _boxAnimator: {fileID: 6603016574791939525}
   _rigidbody: {fileID: 0}

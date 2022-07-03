@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 public class MotorcycleController : MonoBehaviour
 {
 
-    //TODO: add motorcycle SFX to Rider / Audio Source
-    //TODO: add BG Music to BGMusicPlayer / Audio Source
-
-    //TODO: make motorcycle wheels rotate
-
     float xInput;
     public float xSteerSpeed;
     public float xLimit;
@@ -19,10 +14,6 @@ public class MotorcycleController : MonoBehaviour
 
     public GameObject road;
 
-    // SFX variables
-    float nextTimeToPlayMotorcycleSFX;
-    AudioSource audioSource;
-
 
     CapturedObjectManager capturedObjectManager;
 
@@ -30,13 +21,13 @@ public class MotorcycleController : MonoBehaviour
     private void Awake()
     {
         capturedObjectManager = FindObjectOfType<CapturedObjectManager>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        nextTimeToPlayMotorcycleSFX = Time.time + Random.Range(0.5f, 4f);
+        //nextTimeToPlayMotorcycleSFX = Time.time + Random.Range(0.5f, 4f);
     }
 
     // Update is called once per frame
@@ -60,13 +51,6 @@ public class MotorcycleController : MonoBehaviour
         {
 
             SceneTransition.GoToRandomNextScene();
-        }
-
-        // Play motorcycle SFX at random times
-        if (Time.time > nextTimeToPlayMotorcycleSFX)
-        {
-            audioSource.Play();
-            nextTimeToPlayMotorcycleSFX = Time.time + Random.Range(0.5f, 4f);
         }
 
 
