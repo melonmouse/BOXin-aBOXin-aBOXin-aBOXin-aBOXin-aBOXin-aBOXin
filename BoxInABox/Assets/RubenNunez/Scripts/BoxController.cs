@@ -15,6 +15,15 @@ public class BoxController : MonoBehaviour
     private GameObject _closed;
 
     [SerializeField]
+    private AudioSource _audioSource;
+    
+    [SerializeField]
+    private AudioClip _audioOpen;
+    
+    [SerializeField]
+    private AudioClip _audioClose;
+    
+    [SerializeField]
     private GameObject _warningPopUp;
 
     [SerializeField]
@@ -91,8 +100,12 @@ public class BoxController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             _boxAnimator.Play(_isBoxOpen ? "box-close-anim" : "box-open-anim");
+            _audioSource.clip = _isBoxOpen ? _audioClose : _audioOpen;
+            _audioSource.Play();
+            
             _isBoxOpen = !_isBoxOpen;
             _closed.SetActive(!_isBoxOpen);
+            
         }
     }
 }

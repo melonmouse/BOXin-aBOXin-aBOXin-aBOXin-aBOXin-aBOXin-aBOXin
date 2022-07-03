@@ -28,6 +28,12 @@ public class StartingSceneController : MonoBehaviour
     [SerializeField]
     private Button backFromCredits;
 
+    [SerializeField]
+    private Transform circleObjects;
+
+    [SerializeField]
+    private float circleObjectsSpeed;
+
     private bool _isEnding;
 
     // Start is called before the first frame update
@@ -41,6 +47,10 @@ public class StartingSceneController : MonoBehaviour
     {
         fadeCanvas.alpha = 1;
         fadeCanvas.DOFade(0, 0.5f);
+    }
+
+    private void Update() {
+        circleObjects.rotation = Quaternion.AngleAxis(Time.deltaTime * circleObjectsSpeed, Vector3.forward) * circleObjects.rotation;
     }
 
     private void OnStartPressed()
@@ -71,7 +81,9 @@ public class StartingSceneController : MonoBehaviour
 
         boxAnimator.SetBool("Open", true);
 
+        var itempos = item.transform.position;
         item.transform.SetParent(null, true);
+        item.transform.position = itempos;
         item.transform.DOJump(endingCamPos.parent.position + new Vector3(0, 0.2f, 0f), 1, 1, 0.5f);
         item.transform.DOScale(0.005f, 0.5f);
 

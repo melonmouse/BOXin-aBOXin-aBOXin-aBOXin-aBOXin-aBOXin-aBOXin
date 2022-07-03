@@ -442,6 +442,9 @@ MonoBehaviour:
   _boxCatcherSceneController: {fileID: 0}
   speed: 0.75
   _closed: {fileID: 9210652782477765531}
+  _audioSource: {fileID: 0}
+  _audioOpen: {fileID: 8300000, guid: 9c6bf5066b4094ab7970a14c17070286, type: 3}
+  _audioClose: {fileID: 8300000, guid: 566f613ee9830442fb6471fa60bdaf08, type: 3}
   _warningPopUp: {fileID: 6101219161407811186}
   _boxAnimator: {fileID: 5238833494662692559}
   _rigidbody: {fileID: 5238833495240311575}
