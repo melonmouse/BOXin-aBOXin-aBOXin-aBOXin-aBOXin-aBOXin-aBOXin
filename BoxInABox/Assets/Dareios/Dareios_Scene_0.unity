@@ -1341,6 +1341,7 @@ MonoBehaviour:
   prefabBaseItems: {fileID: 994171154}
   heldItem: {fileID: 450986943}
   itemManager: {fileID: 450986943}
+  player: {fileID: 390069405}
 --- !u!4 &1576894256
 Transform:
   m_ObjectHideFlags: 0
