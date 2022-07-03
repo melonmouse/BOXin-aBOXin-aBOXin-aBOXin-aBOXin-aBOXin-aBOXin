@@ -3163,7 +3163,7 @@ MonoBehaviour:
   itemsContainer: {fileID: 2100772384}
   start: {fileID: 409428331}
   end: {fileID: 532048728}
-  rateAtWhichItemsAreSpawned: 600
+  rateAtWhichItemsAreSpawnedInSeconds: 0.3
   shouldSpawnItems: 1
 --- !u!1 &1994307065
 GameObject:

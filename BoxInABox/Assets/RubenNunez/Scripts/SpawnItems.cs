@@ -18,7 +18,8 @@ public class SpawnItems : MonoBehaviour
     private Transform end;
 
     [SerializeField]
-    private float rateAtWhichItemsAreSpawned = 60.0f;
+    private float rateAtWhichItemsAreSpawnedInSeconds = 3.0f;
+    float nextTime = 0;
     
     [SerializeField]
     private bool shouldSpawnItems;
@@ -35,9 +36,11 @@ public class SpawnItems : MonoBehaviour
     {
         if (shouldSpawnItems)
         {
-            if (Time.frameCount % rateAtWhichItemsAreSpawned == 0 &&
+            if (Time.time >= nextTime &&
                 _items.Count < _itemsCapacity)
             {
+                nextTime += rateAtWhichItemsAreSpawnedInSeconds; 
+                
                 var item = Instantiate(prefabs[Random.Range(0, prefabs.Count)], GetRandomPointBetweenStartAndEnd(),
                     Random.rotation);
                 
