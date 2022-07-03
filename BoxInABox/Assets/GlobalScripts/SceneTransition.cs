@@ -22,6 +22,7 @@ public static class SceneTransition
 
         if(unplayedScenes.Count == 0){
             Application.OpenURL("https://github.com/melonmouse/BOXin-aBOXin-aBOXin-aBOXin-aBOXin-aBOXin-aBOXin");
+            SceneManager.LoadScene("StartingScene");
             return;
         }
 
