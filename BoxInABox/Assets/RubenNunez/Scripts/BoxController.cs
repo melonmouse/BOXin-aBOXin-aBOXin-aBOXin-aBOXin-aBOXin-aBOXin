@@ -36,7 +36,9 @@ public class BoxController : MonoBehaviour
             {
                 // check if Global Item is other.GameObject
                 if (other.gameObject.GetComponent<ItemIdentifier>().item
-                    == _boxCatcherSceneController.InputItem)
+                    == _boxCatcherSceneController.InputItem ||
+                    other.gameObject.GetComponent<ItemIdentifier>().item
+                    == BoxItemState.Item.BaseItem)
                 {
                     // ShowWarning PopUp and Destroy Item
                     ShowWarning();
