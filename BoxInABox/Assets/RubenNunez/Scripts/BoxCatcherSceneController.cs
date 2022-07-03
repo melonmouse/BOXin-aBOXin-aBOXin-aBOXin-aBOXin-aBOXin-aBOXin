@@ -23,6 +23,9 @@ namespace RubenNunez.Scripts
         
         [SerializeField]
         private Transform _ground;
+        
+        [SerializeField]
+        private CanvasGroup _blackImage;
 
         private bool _lookAtBox;
         
@@ -60,6 +63,7 @@ namespace RubenNunez.Scripts
             sequence.Insert(0f, _box.parent.DOScale(Vector3.one * 10, 0.75f));
             sequence.Insert(0f, _duckyDuck.DOScale(Vector3.zero , 0.45f));
             sequence.Insert(0f, _ground.DOMove(Vector3.down * 100f, 0.45f));
+            sequence.Insert(0f, _blackImage.DOFade(1, 1f));
             sequence.OnStart(() =>
             {
                 animator.Play("box-open-anim");
