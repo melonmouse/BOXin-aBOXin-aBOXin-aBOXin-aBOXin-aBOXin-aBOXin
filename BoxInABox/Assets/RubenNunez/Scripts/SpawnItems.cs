@@ -30,6 +30,7 @@ public class SpawnItems : MonoBehaviour
     private void Start()
     {
         _items = new Queue<GameObject>(_itemsCapacity);
+        nextTime = Time.time;
     }
 
     private void Update()
