@@ -36,8 +36,8 @@ public class BoxController : MonoBehaviour
 
     private void Start()
     {
-        if(_isBoxOpen)
-            _closed.SetActive(true);
+        _isBoxOpen = false;
+        _closed.SetActive(true);
     }
 
 
