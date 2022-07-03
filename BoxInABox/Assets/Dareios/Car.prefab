@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3651129100207288170}
   - component: {fileID: 2427967404365587942}
   - component: {fileID: 7991127777884150761}
-  - component: {fileID: 2661600794510797244}
   - component: {fileID: 8588934253306807076}
   - component: {fileID: 8363777266050915284}
+  - component: {fileID: 3628551722577370927}
   m_Layer: 0
   m_Name: Car
   m_TagString: duckersCar
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5621392712435116452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.17, y: 0.5, z: -6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5462717, y: 0.5462717, z: 0.5462717}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5621392712435116452}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 5269451721766482279, guid: 959b2861f9e4de1468ff5348b1f6f091, type: 3}
 --- !u!23 &7991127777884150761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 214263561473050000, guid: 959b2861f9e4de1468ff5348b1f6f091, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2661600794510797244
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5621392712435116452}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8588934253306807076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +110,21 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 12
   m_CollisionDetection: 0
+--- !u!65 &3628551722577370927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621392712435116452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5405121, y: 1.127557, z: 3.7440958}
+  m_Center: {x: -0.009806633, y: 0.5629003, z: -0.17302752}

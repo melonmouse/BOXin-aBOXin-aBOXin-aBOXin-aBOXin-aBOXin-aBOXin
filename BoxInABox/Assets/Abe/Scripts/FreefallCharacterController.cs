@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class FreefallCharacterController : MonoBehaviour
 {
@@ -25,6 +26,15 @@ public class FreefallCharacterController : MonoBehaviour
     // TODO consider adding wind angle speed
     // TODO switch to some noise function for wind angle and speed
 
+    public float verticalBob_duration;
+    public float verticalBob_magnitude;
+
+    void Start()
+    {
+        transform.DOLocalMoveY(verticalBob_magnitude, verticalBob_duration)
+                 .SetEase(Ease.InOutQuad)
+                 .SetLoops(-1, LoopType.Yoyo);
+    }
     void Update()
     {
         Vector2 input = Inputs.Direction();
