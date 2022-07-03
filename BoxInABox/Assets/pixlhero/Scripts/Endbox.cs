@@ -16,6 +16,15 @@ public class Endbox : MonoBehaviour
     [SerializeField]
     private Transform canvas;
 
+    [SerializeField]
+    private AudioClip openSound;
+
+    [SerializeField]
+    private AudioClip closeSound;
+
+    [SerializeField]
+    private AudioSource audioSource;
+
     private bool _playerIsClose;
 
     // Start is called before the first frame update
@@ -64,6 +73,9 @@ public class Endbox : MonoBehaviour
         if(BoxItemState.Instance.HeldItem == BoxItemState.Item.BaseItem){
             canvas.gameObject.SetActive(true);
             canvas.DOShakeScale(0.3f, 0.7f, 15, 90);
+        }else{
+            audioSource.clip = openSound;
+            audioSource.Play();
         }
     }
 
@@ -71,5 +83,10 @@ public class Endbox : MonoBehaviour
         _playerIsClose = false;
 
         canvas.gameObject.SetActive(false);
+
+        if(BoxItemState.Instance.HeldItem != BoxItemState.Item.BaseItem){
+            audioSource.clip = closeSound;
+            audioSource.Play();
+        }
     }
 }
