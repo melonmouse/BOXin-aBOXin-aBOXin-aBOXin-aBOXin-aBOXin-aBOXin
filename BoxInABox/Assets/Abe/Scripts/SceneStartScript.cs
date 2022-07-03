@@ -12,8 +12,9 @@ public class SceneStartScript : MonoBehaviour
         if (BoxItemState.Instance.HeldItem == BoxItemState.Item.BaseItem)
         {
             Debug.Log("WARNING: got BaseItem, OVERWRITING HELD ITEM");
-            BoxItemState.Instance.HeldItem = BoxItemState.Item.ButterflyCatchingNet;
-            // TODO set orientation
+            //BoxItemState.Instance.HeldItem = BoxItemState.Item.ButterflyCatchingNet;
+            //BoxItemState.Instance.HeldItem = BoxItemState.Item.Banana;
+            BoxItemState.Instance.HeldItem = BoxItemState.Item.HourGlass;
         }
         heldPrefab = boxItemMapping.GetHeldItemPrefab();
         GameObject child = Instantiate(heldPrefab, hero);

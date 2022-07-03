@@ -549,9 +549,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3513626510364136906, guid: b802e2131382cba41b6693aec265f5d0, type: 3}
     - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+      propertyPath: ItemPrefabs.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 2607793222607596093, guid: 99414b6bbe7a4877fbafbb65a17f0920, type: 3}
+    - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+      propertyPath: ItemPrefabs.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 2607793222607596093, guid: 657957a9a4e324823a3e7839f6e4c9e9, type: 3}
+    - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+      propertyPath: ItemPrefabs.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 2607793222607596093, guid: 7949ef517067c008a81c30979d42a7c0, type: 3}
+    - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
       propertyPath: ItemPrefabs.Array.data[4].prefab
       value: 
       objectReference: {fileID: 8950105857558687936, guid: 5a58a75143bddf99c979b45be03ef0cd, type: 3}
+    - target: {fileID: 5095695926497795098, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
+      propertyPath: ItemPrefabs.Array.data[5].prefab
+      value: 
+      objectReference: {fileID: 2607793222607596093, guid: 468ddff6d691b532db02dc6f1302c019, type: 3}
     - target: {fileID: 7293484150086212869, guid: 35dcab1286bf94f7fa083f680389b738, type: 3}
       propertyPath: m_Name
       value: SystemPrefab
