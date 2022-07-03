@@ -19,6 +19,12 @@ public static class SceneTransition
 
     //TODO decide what exactly the scene ordering should be and change this accordingly
     public static void GoToRandomNextScene(){
+
+        if(unplayedScenes.Count == 0){
+            Application.OpenURL("https://github.com/melonmouse/BOXin-aBOXin-aBOXin-aBOXin-aBOXin-aBOXin-aBOXin");
+            return;
+        }
+
         // For now: play every scene once
         string currentSceneName = SceneManager.GetActiveScene().name;
         int chosenSceneIndex = Random.Range(0, unplayedScenes.Count);
