@@ -37,6 +37,11 @@ public class DuckersCarController : MonoBehaviour
         }
     }
 
+    public void setSpeed(float itemSpeed)
+    {
+        speed = itemSpeed;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "duckersCar")

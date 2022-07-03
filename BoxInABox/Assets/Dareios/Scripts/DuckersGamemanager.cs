@@ -8,6 +8,8 @@ public class DuckersGamemanager : MonoBehaviour
     public GameObject prefabBaseItems;
     public GameObject heldItem;
     public GameObject itemManager;
+    public GameObject player;
+
     private int blockedLane;
 
     // Start is called before the first frame update
@@ -29,25 +31,20 @@ public class DuckersGamemanager : MonoBehaviour
 
 
         heldItem = prefabBaseItems.GetComponent<BoxItemMapping>().GetHeldItemPrefab();
-        Debug.Log(heldItem.GetComponent<ItemIdentifier>().item);
         if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Banana)
         {
-            Debug.Log("Activate banana");
             ActivateItemNumbered(0);
         }
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.ButterflyCatchingNet)
         {
-            Debug.Log("Activate bug net");
             ActivateItemNumbered(1);
         }
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Mallet)
         {
-            Debug.Log("Activate mallet");
             ActivateItemNumbered(2);
         }
         else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
         {
-            Debug.Log("Activate motorcycle");
             ActivateItemNumbered(3);
         }
     }
@@ -87,6 +84,31 @@ public class DuckersGamemanager : MonoBehaviour
             }
 
             blockedLane = carLane;
+        }
+
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Return))
+        {
+            ActivateItem();
+        }
+    }
+
+    void ActivateItem()
+    {
+        if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Banana)
+        {
+            prefabCar.GetComponent<DuckersCarController>().setSpeed(6.0f);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.ButterflyCatchingNet)
+        {
+            ActivateItemNumbered(1);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Mallet)
+        {
+            ActivateItemNumbered(2);
+        }
+        else if (heldItem.GetComponent<ItemIdentifier>().item == BoxItemState.Item.Motorcycle)
+        {
+            player.GetComponent<DuckersCarController>().setSpeed(4.8f);
         }
     }
 
