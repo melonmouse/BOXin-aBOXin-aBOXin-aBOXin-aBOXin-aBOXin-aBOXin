@@ -209,6 +209,8 @@ MonoBehaviour:
   wrap_to: 21.7
   rotationManager: {fileID: 1099608995}
   wrapBack: 1
+  camera_angle: 0
+  camera_rotation_speed: 0.1
 --- !u!1 &259389261
 GameObject:
   m_ObjectHideFlags: 0
