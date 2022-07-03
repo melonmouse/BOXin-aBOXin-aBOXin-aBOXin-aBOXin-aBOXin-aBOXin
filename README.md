@@ -1,6 +1,9 @@
-Thanks for playing Schrödinger's Parabox!
+# Thanks for playing Schrödinger's Parabox!
 
-Please add your own level.
+But the game is not over...
+
+
+### Please add your own level:
 
 The rules are:
 1) you get an item from the previous game, us it!
