@@ -13,6 +13,8 @@ public class InifiniteCamera : MonoBehaviour
     public float camera_angle = 0f;
     public float camera_rotation_speed;
 
+    float sceneDuration = 0f;
+
     void Update()
     {
         float height = transform.position.y;
@@ -29,7 +31,8 @@ public class InifiniteCamera : MonoBehaviour
         }
         transform.Translate(new Vector3(0, height - transform.position.y, 0));
 
-        if (Random.value < 1e-5)
+        sceneDuration += Time.deltaTime;
+        if (sceneDuration == 35f)
         {
             wrapBack = false;
         }
