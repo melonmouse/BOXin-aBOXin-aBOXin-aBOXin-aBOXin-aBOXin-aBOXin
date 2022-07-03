@@ -33,7 +33,13 @@ public class BoxController : MonoBehaviour
     private Rigidbody _rigidbody;
     
     private bool _isBoxOpen;
-    
+
+    private void Start()
+    {
+        if(_isBoxOpen)
+            _closed.SetActive(true);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
