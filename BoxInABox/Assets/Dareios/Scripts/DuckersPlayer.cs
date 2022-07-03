@@ -7,6 +7,7 @@ public class DuckersPlayer : MonoBehaviour
 {
     public GameObject player;
     public GameObject heldItem;
+    public GameObject collector;
 
     private float speed = 3.6f;
 
@@ -81,7 +82,27 @@ public class DuckersPlayer : MonoBehaviour
 
         if (collision.gameObject.tag == "itemToCollect")
         {
-            heldItem.GetComponent<ItemIdentifier>().SetAsHeldItem();
+            //set collected item to game
+            collision.transform.GetComponent<ItemIdentifier>().SetAsHeldItem();
+
+            //display collected item
+            if (BoxItemState.Instance.HeldItem == BoxItemState.Item.Banana)
+            {
+                collector.GetComponent<Collectormanager>().ActivateCollected(0);
+            }
+            else if (BoxItemState.Instance.HeldItem == BoxItemState.Item.ButterflyCatchingNet)
+            {
+                collector.GetComponent<Collectormanager>().ActivateCollected(1);
+            }
+            else if (BoxItemState.Instance.HeldItem == BoxItemState.Item.Mallet)
+            {
+                collector.GetComponent<Collectormanager>().ActivateCollected(2);
+            }
+            else if (BoxItemState.Instance.HeldItem == BoxItemState.Item.Motorcycle)
+            {
+                collector.GetComponent<Collectormanager>().ActivateCollected(3);
+            }
+
             collision.gameObject.SetActive(false);
         }
 
@@ -89,6 +110,16 @@ public class DuckersPlayer : MonoBehaviour
         {
             SceneTransition.GoToRandomNextScene();
         }
+    }
+
+    public void StepLeft()
+    {
+        // do nothing
+    }
+
+    public void StepRight()
+    {
+        // do nothing
     }
 
     public void SetSpeed (int newSpeed)
